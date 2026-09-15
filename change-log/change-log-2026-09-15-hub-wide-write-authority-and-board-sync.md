@@ -64,3 +64,10 @@ will drift apart again the next time either changes. Flagged in `current-state.m
 **Open at end of session:** `AX-3` and `AX-4` unchanged (still open, still a human/Eugene decision). Peter's
 AWT-0001 "combined run summary" question is now visible on the Hub for Peter/Minda to resolve, not something
 Alex decided unilaterally. `AWT-0004` remains the real fix for the board-db staleness.
+
+**Nudged Eugene on `AWT-0004`, at Minda's request.** No live Eugene session was reachable to message directly
+(peer-agent messaging only reaches sessions currently running), so the nudge went through the shared system
+instead: raised `AWT-0004`'s Priority to **Critical** on both Smartsheet and the board db, with the response
+text citing today's concrete incident (the board showing Alex "Building" hours after Smartsheet already said
+Active) as the evidence. Eugene has no scheduled routine yet (interactive-only), so this surfaces the next
+time Minda or Eugene opens a session there — it does not itself make the routine exist.
