@@ -46,6 +46,21 @@ documents:
 - Nothing invented: every Hub field/Response above restates a fact already sitting in that employee's own
   Drive KB; no judgement call made on their behalf.
 
+**Second staleness found: the published Hub board (`AXSRC-4`), not just Smartsheet.** After the Smartsheet
+sync above, Minda reported the board still showed Alex as "Building". Investigation found the board Artifact
+keeps its **own** database (`roster`/`tasks`/`achievements`/`help` collections), seeded once at each
+employee's creation (2026-09-14) and never updated since — the **daily reconcile routine** meant to keep it in
+step with Smartsheet is `AWT-0004` (Eugene's), still Open, so it has never run. The board's own store still had
+Alex `status:"Building"`, `AWT-0008`/`AWT-0009` `"Open"`, no `HL-0005`, and none of today's Peter/Helen updates.
+
+**Fixed:** synced the board's four collections to the now-current Smartsheet state in one atomic batch (11
+writes) — Alex/Peter/Helen roster fields, `AWT-0001/0002/0007/0008/0009` status+response, two new Achievements
+rows (`a7` the AX-2 sweep, `a8` this session), and `HL-0005`. Every value mirrors what Smartsheet (and, behind
+it, each employee's own KB) already says — nothing invented for another employee.
+
+**This is a one-off catch-up, not a fix.** Without `AWT-0004`'s reconcile routine, the board and Smartsheet
+will drift apart again the next time either changes. Flagged in `current-state.md`'s Next action.
+
 **Open at end of session:** `AX-3` and `AX-4` unchanged (still open, still a human/Eugene decision). Peter's
 AWT-0001 "combined run summary" question is now visible on the Hub for Peter/Minda to resolve, not something
-Alex decided unilaterally.
+Alex decided unilaterally. `AWT-0004` remains the real fix for the board-db staleness.
