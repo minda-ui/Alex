@@ -161,7 +161,7 @@ Git mirror: **`minda-ui/Alex`** (Minda creates the empty repo; Claude seeds it f
 connectors; API-created routines lack connectors). Read-only across the estate; writes its digest to `Sweeps/`,
 applies Rung-1 fixes in this KB and the group KB, and raises issues. Weekly to start (cron in UTC — shift +1h at
 each UK clock change). The ready-to-paste prompt is
-`Fishbone Group/Outputs/2026-09-14_Housekeeping-Sweep-Routine-Prompt_v1.md`. Until it exists, Alex runs
+`Fishbone Group/Outputs/2026-09-14_Housekeeping-Sweep-Routine-Prompt_v2.md` (v2 — incremental/metadata-first: diffs the last `Sweeps/` digest and deep-reads only changed KBs, with a concurrency guard; supersedes v1). Until it exists, Alex runs
 **interactively** (Minda opens a session, or assigns a Hub Tasks row).
 
 ---
