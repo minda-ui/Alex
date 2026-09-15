@@ -71,3 +71,43 @@ instead: raised `AWT-0004`'s Priority to **Critical** on both Smartsheet and the
 text citing today's concrete incident (the board showing Alex "Building" hours after Smartsheet already said
 Active) as the evidence. Eugene has no scheduled routine yet (interactive-only), so this surfaces the next
 time Minda or Eugene opens a session there — it does not itself make the routine exist.
+
+## Addendum — same day: root cause found, routine built and tested, full Hub walkthrough
+
+**Root cause of the board-db staleness, finally identified.** Minda later reported the dashboard still showed
+Alex as "Building" despite the sync above. Investigation found the actual cause: the board Artifact's page
+code calls `window.claude.use("db")`, but the `db` runtime capability had never been **declared** at publish
+time — so every viewer's browser got `null` back and the page permanently rendered its hardcoded 2026-09-14
+seed snapshot, regardless of any database write. Fixed by republishing the same page with
+`capabilities:{db:{}}` explicitly set, and correcting the static fallback seed to match reality as a safety
+net. Verified via the artifact's own database (`roster/alex` confirmed `status:"Active"`, version 2) and via
+re-reading the published page's fallback code. The fallback needed correcting **twice more** later in the
+session as real Hub data moved further out from under it (once after the HL-0001/AWT-0001/AWT-0004 changes,
+once after AWT-0010/AWT-0011) — each time confirmed fixed only after the user did a genuine hard refresh, not
+a soft reload.
+
+**Eugene's connector gap discovered — `AWT-0004` reassigned, not just nudged.** Checking why the nudge might
+not land, found Eugene's Roster connectors are Google Drive/GitHub/Web — **no Smartsheet at all** — so no
+routine on Eugene could ever have performed this reconcile job. With Minda's confirmation, `AWT-0004` was
+reassigned Eugene → Alex and marked Done: Alex drafted a full routine prompt (read Smartsheet + board db,
+push `REQ-`-prefixed board items into Smartsheet with a real id, pull everything else from Smartsheet into
+the board pinned by document version, log a ledger row every run) and Minda created it via the routines form
+as **`Alex — Daily Hub Reconcile`** (`trig_01EMsc8Bn7c3a75q9cfr981c`, `0 5 * * *` UTC, Drive + Smartsheet
+connectors). Minda test-fired it the same session; it completed successfully (session `cse_01BoHwBPBmhqUs9LkUANKqjx`,
+~29 minutes, $1.21) and its own ledger row (processed-items-ledger.md #5, written by that routine run) shows
+it found and corrected real drift on its very first run — several board docs were trimmed copies of the
+fuller Smartsheet text. The routine works as designed.
+
+**Full Hub walkthrough with Minda, item by item.** HL-0001 (Peter's FlexiLoan email, open since 2026-09-14) →
+Minda confirmed Fishbone Construction; status set to Answered; a new task `AWT-0010` created assigning Peter
+the actual filing (Alex has no Gmail/Construction-KB access to do it itself — Rung 2). `AWT-0001` → Minda
+confirmed the ledger/change-log already satisfy the "combined run summary" ask; closed. Helen's two blocked
+tasks (`AWT-0006` the case study, `AWT-0007` the remaining social posts) both traced to the same root cause —
+no Construction Brand-and-Voice material exists yet — addressed by creating `AWT-0011`: WebFetch research on
+the public `www.fishboneconstruction.co.uk` (read-only, cite facts, never invent, same discipline as her
+Amfa work from uploaded PDFs), to build the missing Brand-and-Voice file and unblock both tasks.
+
+**Open at end of session:** `AX-3`/`AX-4` unchanged. `AWT-0003` (Eugene), `AWT-0010` (Peter), `AWT-0011`
+(Helen) all queued, waiting on each employee's own next session — nothing further for Alex to do on any of
+them right now. Git-mirror branch tidying (the reconcile routine runs on its own throwaway branches) flagged
+for later, explicitly deferred at Minda's request.
