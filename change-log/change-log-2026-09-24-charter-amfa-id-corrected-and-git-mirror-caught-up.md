@@ -58,7 +58,16 @@ re-fetched into the mirror, and this session's `current-state.md` update was reb
 
 ### Open after this session
 
-- PR #1 awaits review/merge; once merged, the 13 old branches can be deleted (not the PR branch itself until it is merged).
 - The Daily Hub Reconcile / Hub Drift Watch routine should write to one fixed branch, not a new branch
  per firing (routine prompt is Minda's to paste — propose, don't edit).
 - Owner decision: whether, and how much of, the Drive `Archive/` the mirror should carry.
+
+### Follow-up (same session)
+
+- **PR #1 merged** into `main` as a merge commit (`1d1aae0`), so every old branch's history stays in `main`.
+ Each of the 13 was checked to be an ancestor of the new `main` before deletion.
+- This session could not delete them itself (branch deletes outside the session's own branch are refused
+ with HTTP 403). **Minda deleted all 13 on GitHub**; confirmed by listing the repo's branches — only `main`
+ and `claude/check-folder-alex-uf1ud4` remain. (Two early attempts didn't stick — GitHub's Restore button
+ sits where the delete icon was.)
+- `current-state.md` updated to match.
