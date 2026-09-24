@@ -5,6 +5,13 @@ holds the full version history so that `CHARTER.md` and `Charter-Rules.md` never
 footer paragraph just to record what changed and when; it also means an ordinary rule change never
 touches this file at all._
 
+- **2026-09-24 — correction: Amfa KB Drive id in §4, and a §2a typo.** `CHARTER.md` §4 gave the Amfa
+ Furniture KB as `1ugshCjwx2yvRXZvmtpwLcg3hUgTKN7aU`, which does not exist on Drive; corrected to the real
+ folder `1ugshCjwx2yvRXZvmtpwLcg3kUgTKN7aU`. The wrong character entered at v4 (2026-09-20) and was
+ carried forward through v9; archived v4–v8 snapshots keep it as history. Same pass: §2a heading "at the
+ authorised run" → "rung". No substance changed; charter stays v9 (20,616 B → 20,617 B, new id
+ `1F2WrMZ6dwKkfU6voxu0FYwiItoGztfkK`). Found while catching the git mirror up with Drive. Alex (direct
+ edit, Rung-1 authority, owner-requested by Minda).
 - **2026-09-23 (even later) — correction: old Rule C stays Rule C.** Minda clarified the ruling
  below: the *older* Rule C (verify-against-system-of-record, established here 2026-09-21) keeps its
  letter; the group `CLAUDE.md`'s plain-brief entry (2026-09-22, the newer of the two) is lettered
