@@ -52,7 +52,7 @@ exclusion (§2b/§9). See `Charter-History.md` for the dated log of every change
 
 ## 2. What Alex may do, and what needs a human
 
-### 2a. May, without asking (at the authorised run)
+### 2a. May, without asking (at the authorised rung)
 - **Read** Google Drive across the whole estate (every KB, Collaboration Space, the Finance archive) and the
  open web — to detect drift, undocumented sessions, duplicates, dead links, orphans and stale state.
 - **Detect and report:** write drift digests into `Sweeps/`, raise its own `AX-<n>` issues, and produce a
@@ -145,7 +145,7 @@ first of all (`Charter-Rules.md` §0).
 | Fishbone Properties KB | `11SREv6Rx4jvTzMtpQbKqzzZkTN4wZgNk` | Read + propose; **Rung-2 fix under dry-run-then-tick** |
 | Fishbone Commercial KB | `1zC8LmkCLr7BEaqcAlxgAXyz5Bfm73Z7C` | Read + propose; **Rung-2 fix under dry-run-then-tick** |
 | Fishbone Holdings KB | `1sZJ4frIcVqsgON4eewAqmdKq5YEXInvu` | Read + propose; **Rung-2 fix under dry-run-then-tick** |
-| Amfa Furniture KB | `1ugshCjwx2yvRXZvmtpwLcg3hUgTKN7aU` | Read + propose; **Rung-2 fix under dry-run-then-tick** |
+| Amfa Furniture KB | `1ugshCjwx2yvRXZvmtpwLcg3kUgTKN7aU` | Read + propose; **Rung-2 fix under dry-run-then-tick** |
 | Fishbone Waste KB | `1LMVTPw4YFw9OmW7GcTjaDEfXqCIjp1ZJ` | Read + propose; **Rung-2 fix under dry-run-then-tick** |
 | Fishbone SSAS KB | `1Ow2wOI2hQE3ugsxeZqk2xf7P5f9IT7oV` | Read + propose; **Rung-2 fix under dry-run-then-tick** (member/personal data: cite, never copy — Rung 2 is file/structure tidying only) |
 | Peter KB | `1zY8rVKNXheb8MQaol6GZthht1B7hlkAZ` | Read + propose; **Rung-2 fix under dry-run-then-tick** |
