@@ -71,3 +71,11 @@ re-fetched into the mirror, and this session's `current-state.md` update was reb
  and `claude/check-folder-alex-uf1ud4` remain. (Two early attempts didn't stick — GitHub's Restore button
  sits where the delete icon was.)
 - `current-state.md` updated to match.
+- **Owner decision (Minda):** the git mirror does **not** need Drive's `Archive/` at all. Existing `Archive/`
+ files in the repo (ledger parts from old branches, and the recovered 2026-09-16/17 reconcile rows, which
+ exist nowhere else) stay as history.
+- **Routine branch pile-up — no fix needed.** All eleven routine branches date from 2026-09-16/17, i.e. from
+ the write-capable Daily Hub Reconcile before its 2026-09-17 redesign (ledger item 29). The hourly Hub
+ Drift Watch it became logs to the Drive ledger only and has opened no branch since. The live routine
+ (`trig_01EMsc8Bn7c3a75q9cfr981c`) is not readable from this session, so no full replacement prompt was
+ written blind; a short guard paragraph was offered to Minda instead.
