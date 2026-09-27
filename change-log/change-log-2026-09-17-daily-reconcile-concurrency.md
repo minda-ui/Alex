@@ -1,0 +1,19 @@
+# Change log — 2026-09-17 — Daily Hub reconcile: version-conflict with the routine's own scheduled fire
+
+_Append-only dated session file (Alex KB). See `current-state.md`, `processed-items-ledger.md` row 8. This entry exists only because the run hit a judgement call (a rejected pinned write); a clean reconcile run doesn't get its own change-log file._
+
+## Session — 2026-09-17: Daily Hub Reconcile
+
+**Scope.** Per the routine's charter authority (§9a, Hub-wide write authority): read Smartsheet Roster / Tasks & Requests / Achievements / Help & Lessons in full, list the published dashboard's four `db` collections, push any board `REQ-` items into Smartsheet, and pull everything else from Smartsheet into the board where the two differ. Nothing outside the four Hub sheets/collections was touched.
+
+**No `REQ-` items.** All board task/help docs already carry real `AWT-`/`HL-` ids — nothing to mint or push this run.
+
+**Pull direction — full field-by-field diff.** Compared all 40 board docs (6 roster, 11 tasks, 11 achievements, 12 help) against their Smartsheet rows on every field the routine's mapping covers. Found 8 genuine text differences (the board carrying a trimmed or stale copy of a Smartsheet cell) plus a handful of purely cosmetic ones (Roster `connectors` separator style — `·` on the board vs. `,`/`+` in Smartsheet — and a few trailing-period-only `reach` differences). The cosmetic ones were left alone, consistent with the same call made in every prior reconcile run (no information is lost either way; rewriting them would be pure churn).
+
+**Version conflict — the routine's own scheduled fire got there first.** The first batch write (6 fields across roster/eugene, roster/helen, roster/victoria, tasks/AWT-0010, help/HL-0007) was rejected: `roster/eugene` was pinned to version 3 but the live document was already at version 4. Per the standing AX-5 discipline (re-read live state before retrying, never blindly resend a stale batch), re-read all five target documents rather than guessing. This showed a **concurrent execution of this same daily-reconcile routine** — the actual scheduled ~05:00 UTC fire, timestamped ~05:13 UTC — had already landed 4 of the 6 corrections this session had independently found: Eugene's and Helen's Roster `routines` text, Victoria's Roster `reach` text, and HL-0007's `context` text. Two were still outstanding: `AWT-0010.request` (board was missing Smartsheet's trailing "See Response for full detail." sentence) and `HL-0007.problem` (board had stripped the backticks around code terms that Smartsheet's cell still carries).
+
+**Applied and verified.** Wrote the 2 remaining fixes in one atomic batch, each pinned to the version just re-read (`AWT-0010` v5→v6, `HL-0007` v7→v8); both writes confirmed committed and both docs re-read afterward to confirm the text now matches Smartsheet exactly (same Rung-1-style verify-after-write discipline used throughout).
+
+**Why this happened.** Two sessions (this one and the routine's own scheduled instance) evidently read the board/Smartsheet state within moments of each other this morning and independently started the same reconcile. Not a bug — the version-pinning + re-read-on-conflict discipline (AX-5) did exactly its job: no data was overwritten, no duplicate write landed, and the batch that did land only touched fields still genuinely out of sync.
+
+**Governance / scope.** All writes were to the AI Workforce Hub board (Artifact db, §9a authority) and none went to Smartsheet (the system of record) or any Drive KB. No `open-issues.md` entry needed — this isn't a new standing issue, just the AX-5 lesson doing its job again in a new shape (concurrent *routine* fires, not concurrent *sessions* editing a control file). No escalation needed; nothing ambiguous, no field value invented.
