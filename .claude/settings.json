@@ -7,3 +7,16 @@
     ]
   }
 }
+{
+  "permissions": {
+    "allow": [
+      "Bash(composio execute *)",
+      "Bash(composio connections remove *)",
+      "Bash(composio link *)",
+      "Bash(cd /home/user/* && *)",
+      "Bash(git reset --hard *)",
+      "Bash(git commit-tree *)",
+      "Bash(git update-ref *)"
+    ]
+  }
+}
