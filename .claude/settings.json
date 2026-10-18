@@ -9,7 +9,21 @@
       "Bash(git commit-tree *)",
       "Bash(git update-ref *)",
       "Bash(git merge *)",
-      "Agent"
+      "Agent",
+      "mcp__Google_Drive__create_file",
+      "mcp__Google_Drive__update_file",
+      "mcp__Google_Drive__copy_file",
+      "mcp__Google_Drive__search_files",
+      "mcp__Google_Drive__read_file_content",
+      "mcp__Google_Drive__download_file_content",
+      "mcp__Google_Drive__get_file_metadata",
+      "mcp__Google_Drive__get_file_permissions",
+      "mcp__Google_Drive__list_recent_files",
+      "mcp__Smartsheet__update_rows",
+      "mcp__Smartsheet__add_rows",
+      "mcp__Smartsheet__get_sheet_summary",
+      "mcp__Smartsheet__get_columns",
+      "mcp__Smartsheet__find_in_sheet"
     ],
     "deny": [
       "Bash(composio execute GMAIL_BATCH_DELETE_MESSAGES*)",
@@ -21,7 +35,9 @@
       "Bash(composio execute GMAIL_SEND_DRAFT*)",
       "Bash(composio execute GMAIL_SEND_EMAIL*)",
       "Bash(composio execute GOOGLEDRIVE_DELETE_*)",
-      "Bash(composio execute GOOGLEDRIVE_GOOGLE_DRIVE_DELETE_FOLDER_OR_FILE_ACTION*)"
+      "Bash(composio execute GOOGLEDRIVE_GOOGLE_DRIVE_DELETE_FOLDER_OR_FILE_ACTION*)",
+      "mcp__Google_Drive__trash_file",
+      "Bash(composio execute GMAIL_CREATE_EMAIL_DRAFT*)"
     ]
   },
   "enabledMcpjsonServers": [
