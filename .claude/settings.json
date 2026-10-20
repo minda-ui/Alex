@@ -45,9 +45,7 @@
       "mcp__Google_Drive__trash_file"
     ]
   },
-  "enabledMcpjsonServers": [
-    "composio"
-  ],
+  "enabledMcpjsonServers": ["composio"],
   "hooks": {
     "SessionStart": [
       {
@@ -55,6 +53,16 @@
           {
             "type": "command",
             "command": "bash \"$CLAUDE_PROJECT_DIR/.claude/hooks/session-start.sh\""
+          }
+        ]
+      }
+    ],
+    "UserPromptSubmit": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "bash \"$CLAUDE_PROJECT_DIR/.claude/hooks/goodnight-check.sh\""
           }
         ]
       }
